@@ -36,13 +36,12 @@ const setMusic = (i) => {
   disk.style.backgroundImage = `url('${song.cover}')`;
 
   currentTime.innerHTML = "00:00";
-  musicDuration.innerHTML = "00:00"; // Set default value to avoid NaN:NaN
+  musicDuration.innerHTML = "00:00";
 
-  // Wait for metadata to load before setting duration
-  music.addEventListener("loadedmetadata", () => {
+ setTimeout(() => {
     seekBar.max = music.duration;
     musicDuration.innerHTML = formatTime(music.duration);
-  });
+  }, 300);
 };
 
 setMusic(0);
